@@ -12,10 +12,7 @@ from SETTINGS import *
 from CONSTANTS import *
 import json
 from uuid import uuid4
-import os
 
-# if os.curdir == '.':
-#     os.chdir('switch_snatcher')
 
 class urlmap():
     def __init__(self):

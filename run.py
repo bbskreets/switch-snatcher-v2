@@ -17,16 +17,20 @@ import time
 
 running = True
 
+colorama.init()
+
+
 def clear():
     print("\x1b[2J")
+
 
 def reposition(x, y):
     print("\x1b[{};{}H".format(x + 1, y + 1))
 
+
 def reset_screen():
     clear()
-    reposition(0,0)
-    colorama.init()
+    reposition(0, 0)
     print(colorama.Fore.BLUE + INTRO + colorama.Fore.RESET)
 
 
@@ -37,7 +41,6 @@ while running:
     print('2) Add New Websites')
     print('3) Remove Websites')
     print('4) Exit Program')
-
     x = input('--> ')
 
     if x == '1':
@@ -85,7 +88,7 @@ while running:
                         max_price = float(max_price)
                         reset_screen()
                         print('Adding website...')
-                        added = add_website(url,site_type,max_price)
+                        added = add_website(url, site_type, max_price)
                         if added:
                             print('Done!')
 
@@ -98,8 +101,6 @@ while running:
                         print(e)
                         print('Please enter a valid price.')
                         time.sleep(2)
-
-
 
             else:
                 reset_screen()
@@ -114,12 +115,10 @@ while running:
             count = 0
             reset_screen()
 
-
             for i in URL_MAP:
                 count += 1
                 items[count] = i
                 print(f'{count}) {URL_MAP[i]}')
-
 
             try:
                 print("\nenter 'x' to go back.")
@@ -146,7 +145,6 @@ while running:
             except ValueError:
                 print('Please enter a valid number.')
                 time.sleep(2)
-
 
     elif x == '4':
         clear()

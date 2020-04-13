@@ -20,9 +20,7 @@ DRIVER_FOLDER = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}'
 DRIVER_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}/{OS}'
 SITE_TYPES = ('amazon')  # todo --> 'bestbuy','thesource','walmart','staples','ebgames'
 
-
 DATETIME_STR = "%m/%d/%Y, %H:%M:%S"
-
 
 INTRO = """
 ----------------------------------------------------------------------------------------------------
@@ -34,6 +32,3 @@ INTRO = """
 ╚═════╝ ╚═════╝     ╚═▀▀▀══╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   ╚══════╝
                                                          Switch Snatcher v2.0
 ----------------------------------------------------------------------------------------------------"""
-
-if not os.path.exists(DRIVER_FOLDER):
-    os.makedirs(DRIVER_FOLDER)

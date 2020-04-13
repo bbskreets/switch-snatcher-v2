@@ -17,29 +17,40 @@ from datetime import datetime
 import time
 import colorama
 
+URL_MAP = urlmap()
 
 
+website_list = []
+position = 12
+for uuid in URL_MAP:
+    site = Website(uuid)
+    website_list.append([site, position])
+    position += 1
 
 
 def clear():
     print("\x1b[2J")
 
+
 def reposition(x, y):
     print("\x1b[{};{}H".format(x + 1, y + 1))
 
+
 def reset_screen():
     clear()
-    reposition(0,0)
-    colorama.init()
+    reposition(0, 0)
     print(colorama.Fore.BLUE + INTRO + colorama.Fore.RESET)
     position = 12
-    reposition(position,0)
+    reposition(position, 0)
+
     for _ in URL_MAP:
         reposition(position, 0)
         print(colorama.Fore.YELLOW + 'Loading...' + colorama.Fore.RESET)
         position += 1
+
     reposition(position + 2, 0)
     print(colorama.Fore.YELLOW + 'Press CTRL+C to go back to main menu.' + colorama.Fore.RESET)
+
 
 def add_website(url, site_type, max_price):
     browser = Browser()
@@ -57,6 +68,7 @@ def add_website(url, site_type, max_price):
 
     return created
 
+
 def remove_website(uuid):
     removed = False
     try:
@@ -70,11 +82,12 @@ def remove_website(uuid):
 
     return removed
 
+
 def start_checking():
     browser = Browser()
     clear()
     count = 0
-    reposition(0,0)
+    reposition(0, 0)
     colorama.init()
     print(colorama.Fore.BLUE + INTRO + colorama.Fore.RESET)
     valid = False
@@ -88,9 +101,9 @@ def start_checking():
             website, line = website_list.pop(0)
             website_list.append([website, line])
             curtime = datetime.now()
-            seconds_passed = int((curtime-website.last_checked).total_seconds())
+            seconds_passed = int((curtime - website.last_checked).total_seconds())
             if seconds_passed < REFRESH_PERIOD:
-                time.sleep(REFRESH_PERIOD-seconds_passed)
+                time.sleep(REFRESH_PERIOD - seconds_passed)
 
             else:
                 count += 1
@@ -103,7 +116,7 @@ def start_checking():
                     valid = True
 
                 else:
-                    if count == len(website_list)*3:
+                    if count == len(website_list) * 3:
                         reset_screen()
                         count = 0
                     reposition(line, 0)
@@ -115,13 +128,3 @@ def start_checking():
             time.sleep(1)
         except Exception as e:
             print(e)
-
-URL_MAP = urlmap()
-
-website_list = []
-
-position = 12
-for uuid in URL_MAP:
-    site = Website(uuid)
-    website_list.append([site, position])
-    position += 1

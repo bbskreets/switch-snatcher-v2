@@ -14,7 +14,6 @@ import re
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import simpleaudio as sa
-import os
 
 
 class Browser():
@@ -29,19 +28,24 @@ class Browser():
 
     def check_website(self, website):
         valid = False
+        in_stock = True
+
         if website.site_type == 'amazon':
             try:
                 self.driver.get(website.url)
+                if website.name is None:
+                    name = self.driver.find_element_by_xpath('//*[@id="olpProductDetails"]/h1').text
 
-                name = self.driver.find_element_by_xpath('//*[@id="olpProductDetails"]/h1').text
+                else:
+                    name = website.name
+
+
                 cur_price = min([float(re.search("\d+\.\d+", price.text).group(0)) for price in self.driver.find_elements_by_class_name('olpOfferPrice')])
 
-                in_stock = True
             except Exception as e:
-                print('Error:', e)
+                print(f'Error: {e}')
                 name = website.name
                 cur_price = website.cur_price
-                in_stock = True
 
         elif website.site_type == 'bestbuy':
             self.driver.get(website.url)
