@@ -1,6 +1,6 @@
 """
 ------------------------------------------------------------------------
-Browser.py -- windows
+Browser.py
 
 selenium browser class
 ------------------------------------------------------------------------
@@ -27,7 +27,7 @@ class Browser():
         options = webdriver.ChromeOptions()
         options.add_argument('user-data-dir=resources/drivers/chrome/profile')
 
-        if OS == 'win':
+        if OS != 'mac':
             for opt in CHROME_OPTIONS_WIN:
                 options.add_argument(opt)
 
@@ -62,7 +62,7 @@ class Browser():
             wave_obj = sa.WaveObject.from_wave_file(f'{SOUNDS_PATH}/{ALERT_SOUND}').play()
             self.driver.close()
             options = webdriver.ChromeOptions()
-            if OS == 'win':
+            if OS != 'mac':
                 for opt in CHROME_OPTIONS_WIN:
                     options.add_argument(opt)
             options.add_argument('user-data-dir=resources/drivers/chrome/profile')
