@@ -18,6 +18,7 @@ SOUNDS_PATH = f'{RESOURCES_PATH}/sounds/'
 PROXIES_PATH = f'{RESOURCES_PATH}/proxies'
 DRIVER_FOLDER = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}'
 DRIVER_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}/{OS}'
+CHROME_PROFILE_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/profile'
 SITE_TYPES = ('amazon')  # todo --> 'bestbuy','thesource','walmart','staples','ebgames'
 
 DATETIME_STR = "%m/%d/%Y, %H:%M:%S"
@@ -32,3 +33,6 @@ INTRO = """
 ╚═════╝ ╚═════╝     ╚═▀▀▀══╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   ╚══════╝
                                                          Switch Snatcher v2.0
 ----------------------------------------------------------------------------------------------------"""
+
+if not os.path.exists(CHROME_PROFILE_PATH):
+    os.makedirs(CHROME_PROFILE_PATH)

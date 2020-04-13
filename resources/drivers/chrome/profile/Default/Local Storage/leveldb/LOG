@@ -1,6 +1,1 @@
-2020/04/13-04:02:26.603 15003 Reusing MANIFEST /Users/braydenchubb/Documents/switch-snatcher-v2/resources/drivers/chrome/profile/Default/Local Storage/leveldb/MANIFEST-000001
-2020/04/13-04:02:26.604 15003 Recovering log #7
-2020/04/13-04:02:26.604 15003 Reusing old log /Users/braydenchubb/Documents/switch-snatcher-v2/resources/drivers/chrome/profile/Default/Local Storage/leveldb/000007.log 
-2020/04/13-04:04:27.758 e76b Level-0 table #11: started
-2020/04/13-04:04:27.772 e76b Level-0 table #11: 26326 bytes OK
-2020/04/13-04:04:27.797 e76b Delete type=0 #7
+2020/04/13-11:32:37.840 d603 Reusing MANIFEST /Users/braydenchubb/Documents/switch-snatcher-v2/resources/drivers/chrome/profile/Default/Local Storage/leveldb/MANIFEST-000001

@@ -88,7 +88,6 @@ def start_checking():
     clear()
     count = 0
     reposition(0, 0)
-    colorama.init()
     print(colorama.Fore.BLUE + INTRO + colorama.Fore.RESET)
     valid = False
 
