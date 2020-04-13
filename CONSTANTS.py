@@ -15,10 +15,10 @@ RESOURCES_PATH = 'resources'
 WEBSITES_PATH = f'{RESOURCES_PATH}/websites'
 URL_MAP_PATH = f'{WEBSITES_PATH}/map.json'
 SOUNDS_PATH = f'{RESOURCES_PATH}/sounds/'
+CHROME_PROFILE_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/profile'
 # PROXIES_PATH = f'{RESOURCES_PATH}/proxies'
 # DRIVER_FOLDER = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}'
 # DRIVER_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}/{OS}'
-# CHROME_PROFILE_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/profile'
 SITE_TYPES = ('amazon')  # todo --> 'bestbuy','thesource','walmart','staples','ebgames'
 
 
