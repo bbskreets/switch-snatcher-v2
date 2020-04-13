@@ -9,15 +9,22 @@ __updated__ = "2020-04-12"
 """
 from platform import system
 
-if system() == 'Windows':
-    OS = 'win'
+import time
+import sys
 
-elif system() == 'Darwin':
-    OS = 'mac'
 
-elif system() == 'Linux':
-    OS = 'linux'
+def get_platform():
+    platforms = {
+        'linux1': 'linux',
+        'linux2': 'linux',
+        'darwin': 'mac',
+        'win32': 'win'
+    }
 
+    return platforms[sys.platform]
+
+
+OS = get_platform()
 REFRESH_PERIOD = 1.5  # How often to refresh websites (seconds) | Type: float
 ALERT_SOUND = 'air_horn.wav'
 BROWSER = 'chrome'  # Options: chrome (currently only chrome supported)| Type: str

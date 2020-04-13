@@ -19,8 +19,7 @@ CHROME_PROFILE_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/profile'
 # PROXIES_PATH = f'{RESOURCES_PATH}/proxies'
 # DRIVER_FOLDER = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}'
 # DRIVER_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}/{OS}'
-SITE_TYPES = ('amazon')  # todo --> 'bestbuy','thesource','walmart','staples','ebgames'
-
+SITE_TYPES = ('amazon','bestbuy')  # todo --> 'bestbuy','thesource','walmart','staples','ebgames'
 
 DATETIME_STR = "%m/%d/%Y, %H:%M:%S"
 

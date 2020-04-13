@@ -23,20 +23,23 @@ CHROME_OPTIONS_WIN = ['--ignore-gpu-blacklist', '--no-default-browser-check', '-
 
 class Browser():
     def __init__(self):
+        self.driver = self.create_driver(HEADLESS)
 
+    def create_driver(self, headless=False):
         options = webdriver.ChromeOptions()
-        options.add_argument('user-data-dir=resources/drivers/chrome/profile')
-
-        if OS != 'mac':
+        if OS == 'mac':  # todo change back to not equal?
             for opt in CHROME_OPTIONS_WIN:
                 options.add_argument(opt)
-
-        if HEADLESS:
-            options.add_argument("--headless")
-
             options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
-        self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        if headless:
+            options.add_argument("--headless")
+
+        options.add_argument('user-data-dir=resources/drivers/chrome/profile')
+
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+
+        return driver
 
     def check_website(self, website):
         valid = False
@@ -61,12 +64,8 @@ class Browser():
             valid = True
             wave_obj = sa.WaveObject.from_wave_file(f'{SOUNDS_PATH}/{ALERT_SOUND}').play()
             self.driver.close()
-            options = webdriver.ChromeOptions()
-            if OS != 'mac':
-                for opt in CHROME_OPTIONS_WIN:
-                    options.add_argument(opt)
-            options.add_argument('user-data-dir=resources/drivers/chrome/profile')
-            self.driver2 = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+
+            self.driver2 = self.create_driver()
             self.driver2.get(website.url)
             self.driver2.maximize_window()
 
