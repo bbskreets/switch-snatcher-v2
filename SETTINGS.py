@@ -9,7 +9,7 @@ __updated__ = "2020-04-12"
 """
 from platform import platform
 
-If platform() == 'Windows':
+if platform() == 'Windows':
     OS = 'win'
 
 elif platform() == 'Darwin':
