@@ -17,9 +17,6 @@ from datetime import datetime
 import time
 import colorama
 
-CHROME_OPTIONS_WIN = ['--ignore-gpu-blacklist', '--no-default-browser-check', '--no-first-run', '--disable-default-apps',
-                      '--disable-infobars', '--disable-extensions', '--test-type', '--no-sandbox', '--disable-dev-shm-usage']
-
 URL_MAP = urlmap()
 
 

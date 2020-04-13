@@ -7,15 +7,15 @@ Email: bbskreets@protonmail.com
 __updated__ = "2020-04-12"
 ------------------------------------------------------------------------
 """
-from platform import platform
+from platform import system
 
-if platform() == 'Windows':
+if system() == 'Windows':
     OS = 'win'
 
-elif platform() == 'Darwin':
+elif system() == 'Darwin':
     OS = 'mac'
 
-elif platform() == 'Linux':
+elif system() == 'Linux':
     OS = 'linux'
 
 REFRESH_PERIOD = 1.5  # How often to refresh websites (seconds) | Type: float

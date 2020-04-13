@@ -9,8 +9,8 @@ __updated__ = "2020-04-12"
 ------------------------------------------------------------------------
 """
 
-from CONSTANTS import *
 from SETTINGS import *
+from CONSTANTS import *
 from SwitchSnatcher import *
 import colorama
 import time
