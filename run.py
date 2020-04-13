@@ -15,6 +15,9 @@ from SwitchSnatcher import *
 import colorama
 import time
 
+print(OS)
+time.sleep(3)
+
 running = True
 
 colorama.init()
