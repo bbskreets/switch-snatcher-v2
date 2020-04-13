@@ -10,11 +10,15 @@ __updated__ = "2020-04-12"
 ------------------------------------------------------------------------
 """
 from CONSTANTS import *
+from SETTINGS import *
 import re
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import simpleaudio as sa
 import os
+
+CHROME_OPTIONS_WIN = ['--ignore-gpu-blacklist', '--no-default-browser-check', '--no-first-run', '--disable-default-apps',
+                      '--disable-infobars', '--disable-extensions', '--test-type', '--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--window-size=1420,1080']
 
 
 class Browser():
@@ -22,13 +26,15 @@ class Browser():
 
         options = webdriver.ChromeOptions()
         options.add_argument('user-data-dir=resources/drivers/chrome/profile')
+
+        if OS == 'win':
+            for opt in CHROME_OPTIONS_WIN:
+                options.add_argument(opt)
+
         if HEADLESS:
             options.add_argument("--headless")
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        options.add_argument('--disable-gpu')
-        options.add_argument('--window-size=1420,1080')
+
+            options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
@@ -56,6 +62,9 @@ class Browser():
             wave_obj = sa.WaveObject.from_wave_file(f'{SOUNDS_PATH}/{ALERT_SOUND}').play()
             self.driver.close()
             options = webdriver.ChromeOptions()
+            if OS == 'win':
+                for opt in CHROME_OPTIONS_WIN:
+                    options.add_argument(opt)
             options.add_argument('user-data-dir=resources/drivers/chrome/profile')
             self.driver2 = webdriver.Chrome(ChromeDriverManager().install(), options=options)
             self.driver2.get(website.url)

@@ -20,6 +20,8 @@ DRIVER_FOLDER = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}'
 DRIVER_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/version_{BROWSER_VERSION}/{OS}'
 CHROME_PROFILE_PATH = f'{RESOURCES_PATH}/drivers/{BROWSER}/profile'
 SITE_TYPES = ('amazon')  # todo --> 'bestbuy','thesource','walmart','staples','ebgames'
+CHROME_OPTIONS_WIN = ['--ignore-gpu-blacklist', '--no-default-browser-check', '--no-first-run', '--disable-default-apps',
+                      '--disable-infobars', '--disable-extensions', '--test-type', '--no-sandbox']
 
 DATETIME_STR = "%m/%d/%Y, %H:%M:%S"
 
