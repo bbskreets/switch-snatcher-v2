@@ -55,7 +55,8 @@ while running:
         site_type = None
         while adding_site:
             reset_screen()
-            print('Supported Websites:', ', '.join(map(str, SITE_TYPES)))
+#             print('Supported Websites:', ', '.join(map(str, SITE_TYPES)))
+            print('Supported Websites: amazon')
             url = input('URL: ')
 
             if 'amazon.ca' in url.lower():
