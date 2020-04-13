@@ -31,7 +31,7 @@ def reposition(x, y):
 def reset_screen():
     clear()
     reposition(0, 0)
-    print(colorama.Fore.BLUE + INTRO + colorama.Fore.RESET)
+    print(colorama.Fore.YELLOW + INTRO + colorama.Fore.RESET)
 
 
 while running:

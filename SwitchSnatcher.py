@@ -17,6 +17,9 @@ from datetime import datetime
 import time
 import colorama
 
+CHROME_OPTIONS_WIN = ['--ignore-gpu-blacklist', '--no-default-browser-check', '--no-first-run', '--disable-default-apps',
+                      '--disable-infobars', '--disable-extensions', '--test-type', '--no-sandbox', '--disable-dev-shm-usage']
+
 URL_MAP = urlmap()
 
 
@@ -39,7 +42,7 @@ def reposition(x, y):
 def reset_screen():
     clear()
     reposition(0, 0)
-    print(colorama.Fore.BLUE + INTRO + colorama.Fore.RESET)
+    print(colorama.Fore.YELLOW + INTRO + colorama.Fore.RESET)
     position = 12
     reposition(position, 0)
 
